@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sai Prabhas | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: white;
+      background: black;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 3, 9, 0.95);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .nav-brand {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-menu a {
+      color: #9ca3af;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover {
+      color: #38bdf8;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(0, 9, 13, 0.1), rgba(0, 4, 11, 0.95));
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 0 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -1px;
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      color: #fb0c20;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #f6f7f8;
+      color: #000;
+      padding: 0.8rem 2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(56,189,248,0.5);
+    }
+
+    /* General Sections */
+    .section {
+      padding: 5rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #f9fafb;
+    }
+
+    /* About Grid */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .bio-card {
+      background: #0f172a;
+      padding: 2rem;
+      border-radius: 1rem;
+      border-top: 4px solid #38bdf8;
+    }
+
+    .bio-card h3 {
+      color: #38bdf8;
+      margin-bottom: 1rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #020617;
+      border: 1px solid #1e293b;
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: #38bdf8;
+    }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-tags {
+      font-size: 0.8rem;
+      color: #38bdf8;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* Skills List */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .skill-tag {
+      background: #1e293b;
+      padding: 0.5rem 1.5rem;
+      border-radius: 5px;
+      border: 1px solid #334155;
+    }
+
+    
+    .footer {
+      padding: 4rem 1.5rem;
+      background: #020617;
+      text-align: center;
+      border-top: 1px solid #1e293b;
+    }
+
+    .contact-links {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .contact-links a:hover {
+      color: #38bdf8;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-brand">SAI PRABHAS</div>
+    <ul class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Singamrao Sai Prabhas</h1>
+      <p class="tagline">ECE Student & Aspiring Software Development Engineer</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>Professional Summary</h2>
+    <div class="bio-grid">
+      <div class="bio-card">
+        <h3>The Background</h3>
+        <p>A 3rd-year B.Tech student in Electronics and Communication Engineering at Sreyas Institute. I bridge the gap between hardware and high-level software.</p>
+      </div>
+      <div class="bio-card">
+        <h3>The Vision</h3>
+        <p>Currently transitioning into SDE roles with a focus on problem-solving, clean code, and building scalable solutions using Python and Web Technologies.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-info">
+          <span class="project-tags">IoT • ARDUINO • SENSORS</span>
+          <h3>Room Temperature Controller</h3>
+          <p>Designed an automated system using microcontrollers to regulate cooling/heating based on real-time data, improving energy efficiency.</p>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-info">
+          <span class="project-tags">WEB DEV </span>
+          <h3>YouTube Clone</h3>
+          <p>Developed a responsive frontend interface with video listing features. Focused on reusable UI components and cross-device compatibility.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Technical Stack</h2>
+    <div class="skills-container">
+      <div class="skill-tag">Python (DSA)</div>
+      <div class="skill-tag">C Programming</div>
+      <div class="skill-tag">HTML/CSS</div>
+      <div class="skill-tag">JavaScript</div>
+      <div class="skill-tag">SQL & MySQL</div>
+      <div class="skill-tag">IoT (Arduino/ESP32)</div>
+      <div class="skill-tag">Raspberry Pi</div>
+    </div>
+  </section>
+
+  <footer id="contact" class="footer">
+    <p>Let's build something together.</p>
+    <div class="contact-links">
+      <a href="mailto:saiprabhassingamrao@gmail.com">Email</a>
+      <a href="https://github.com/singamraoSaiprabhas">GitHub</a>
+      <a href="https://www.linkedin.com/in/sai-prabhas-singam-rao-259418398/">LinkedIn</a>
+    </div>
+    <p style="margin-top: 2rem; font-size: 0.8rem; color: #64748b;">&copy; 2026 Sai Prabhas Singamrao</p>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
