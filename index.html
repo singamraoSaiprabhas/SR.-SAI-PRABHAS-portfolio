@@ -124,13 +124,14 @@
       color: #f9fafb;
     }
 
-    /* About Grid */
-    .bio-grid {
+    /* Shared Grid for About & Projects */
+    .bio-grid, .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
 
+    /* About Cards */
     .bio-card {
       background: #0f172a;
       padding: 2rem;
@@ -143,13 +144,7 @@
       margin-bottom: 1rem;
     }
 
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
+    /* Project Cards */
     .project-card {
       background: #020617;
       border: 1px solid #1e293b;
@@ -189,8 +184,8 @@
       border-radius: 5px;
       border: 1px solid #334155;
     }
-
     
+    /* Footer */
     .footer {
       padding: 4rem 1.5rem;
       background: #020617;
@@ -209,6 +204,13 @@
       color: #38bdf8;
     }
 
+    .copyright {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    /* Media Queries */
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
     }
@@ -241,7 +243,7 @@
     <div class="bio-grid">
       <div class="bio-card">
         <h3>The Background</h3>
-        <p>A 3rd-year B.Tech student in Electronics and Communication Engineering at Sreyas Institute. I bridge the gap between hardware and high-level software.</p>
+        <p>A final year B.Tech student in Electronics and Communication Engineering at Sreyas Institute. I bridge the gap between hardware and high-level software.</p>
       </div>
       <div class="bio-card">
         <h3>The Vision</h3>
@@ -268,16 +270,26 @@
           <p>Developed a responsive frontend interface with video listing features. Focused on reusable UI components and cross-device compatibility.</p>
         </div>
       </article>
+      <article class="project-card">
+        <div class="project-info">
+          <span class="project-tags">cadence </span>
+          <h3>MGDI Based XNOR Logic Full Adder</h3>
+          <p>Designed and simulated a full adder circuit using MGDI technology, ensuring optimal performance and reliability.</p>
+        </div>
+      </article>
     </div>
   </section>
 
   <section id="skills" class="section">
     <h2>Technical Stack</h2>
     <div class="skills-container">
-      <div class="skill-tag">Python (DSA)</div>
+      <div class="skill-tag">Python</div>
+      <div class="skill-tag">Data Structures & Algorithms</div>
       <div class="skill-tag">C Programming</div>
-      <div class="skill-tag">HTML/CSS</div>
+      <div class="skill-tag">HTML</div>
+      <div class="skill-tag">CSS</div>
       <div class="skill-tag">JavaScript</div>
+      <div class="skill-tag">React</div>
       <div class="skill-tag">SQL & MySQL</div>
       <div class="skill-tag">IoT (Arduino/ESP32)</div>
       <div class="skill-tag">Raspberry Pi</div>
@@ -291,7 +303,7 @@
       <a href="https://github.com/singamraoSaiprabhas">GitHub</a>
       <a href="https://www.linkedin.com/in/sai-prabhas-singam-rao-259418398/">LinkedIn</a>
     </div>
-    <p style="margin-top: 2rem; font-size: 0.8rem; color: #64748b;">&copy; 2026 Sai Prabhas Singamrao</p>
+    <p class="copyright">&copy; 2026 Singamrao Sai Prabhas</p>
   </footer>
 
   <script>
