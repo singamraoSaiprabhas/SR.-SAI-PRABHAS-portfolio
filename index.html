@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sai Prabhas | Portfolio</title>
+  <title>Singamrao Sai prabhas | Portfolio</title>
   <style>
+    /* Reset & Base Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
       line-height: 1.6;
-      color: white;
-      background: black;
     }
 
     a {
@@ -24,298 +25,478 @@
     }
 
     /* Navigation */
-    .nav {
+    .navbar {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0, 3, 9, 0.95);
-      padding: 1rem 2rem;
+      background: rgba(10, 10, 10, 0.9);
+      padding: 1.2rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
+      border-bottom: 1px solid #333;
+      backdrop-filter: blur(10px);
     }
 
-    .nav-brand {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: white;
-      letter-spacing: 0.1em;
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #38bdf8;
     }
 
-    .nav-menu {
+    .nav-links {
       display: flex;
-      list-style: none;
       gap: 1.5rem;
+      list-style: none;
     }
 
-    .nav-menu a {
-      color: #9ca3af;
+    .nav-links a {
       font-size: 0.95rem;
-      transition: color 0.2s;
+      transition: color 0.3s;
     }
 
-    .nav-menu a:hover {
+    .nav-links a:hover {
       color: #38bdf8;
     }
 
     /* Hero Section */
     .hero {
-      position: relative;
-      height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 6rem 5% 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 2rem;
     }
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(0, 9, 13, 0.1), rgba(0, 4, 11, 0.95));
-      z-index: -1;
+    .hero-text {
+      flex: 1;
     }
 
-    .hero-content {
-      max-width: 800px;
-      padding: 0 1.5rem;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
+    .hero-text h3 {
+      font-size: 1.5rem;
+      color: #cbd5e1;
       margin-bottom: 0.5rem;
-      letter-spacing: -1px;
     }
 
-    .tagline {
-      font-size: 1.4rem;
+    .hero-text h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem); /* Scales smoothly on smaller screens */
+        margin-bottom: 1rem;
+        color: #38bdf8;
+        white-space: nowrap; /* Forces the text to stay on one line */
+            }
+
+    .hero-text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #e2e8f0;
+    }
+
+    .hero-text p {
+      color: #94a3b8;
       margin-bottom: 2rem;
-      color: #fb0c20;
-      font-weight: 300;
+      max-width: 600px;
+      font-size: 1.1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
     }
 
     .btn {
-      display: inline-block;
-      background: #f6f7f8;
-      color: #000;
-      padding: 0.8rem 2rem;
-      border-radius: 999px;
-      font-weight: 600;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      font-weight: bold;
       transition: all 0.3s;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(56,189,248,0.5);
+    .btn-primary {
+      background: #38bdf8;
+      color: #0a0a0a;
     }
 
-    /* General Sections */
+    .btn-primary:hover {
+      background: #0284c7;
+    }
+
+    .btn-secondary {
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    .hero-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-img img {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #38bdf8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    }
+
+    /* Sections Container */
     .section {
-      padding: 5rem 1.5rem;
-      max-width: 1100px;
+      padding: 5rem 5%;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
-    .section h2 {
-      font-size: 2.2rem;
-      text-align: center;
+    .section-title {
+      font-size: 2.5rem;
       margin-bottom: 3rem;
-      color: #f9fafb;
+      text-align: center;
+      color: #38bdf8;
     }
 
-    /* Shared Grid for About & Projects */
-    .bio-grid, .projects-grid {
+    /* About & Stats */
+    .about-content {
+      text-align: center;
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 200px;
+    }
+
+    .stat-card h1 {
+      color: #38bdf8;
+      font-size: 2.5rem;
+    }
+
+    /* Skills */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .skill {
+      background: #1e293b;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 500;
+      border: 1px solid #334155;
+      transition: transform 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-3px);
+      border-color: #38bdf8;
+    }
+
+    /* Projects */
+    .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
 
-    /* About Cards */
-    .bio-card {
-      background: #0f172a;
+    .project-card {
+      background: #1e293b;
       padding: 2rem;
-      border-radius: 1rem;
+      border-radius: 10px;
       border-top: 4px solid #38bdf8;
+      display: flex;
+      flex-direction: column;
     }
 
-    .bio-card h3 {
+    .project-card h2 {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .project-card p {
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .project-link {
       color: #38bdf8;
+      font-weight: bold;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Education & Achievements */
+    .edu-achieve-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .box {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .box h3 {
+      color: #38bdf8;
+      margin-bottom: 0.5rem;
+    }
+
+    .box p {
+      color: #94a3b8;
       margin-bottom: 1rem;
     }
 
-    /* Project Cards */
-    .project-card {
-      background: #020617;
-      border: 1px solid #1e293b;
-      border-radius: 1rem;
-      overflow: hidden;
-      transition: transform 0.3s;
+    .achievements-list {
+      list-style: none;
     }
 
-    .project-card:hover {
-      transform: translateY(-10px);
-      border-color: #38bdf8;
+    .achievements-list li {
+      margin-bottom: 0.8rem;
+      color: #cbd5e1;
     }
 
-    .project-info {
-      padding: 1.5rem;
-    }
-
-    .project-tags {
-      font-size: 0.8rem;
-      color: #38bdf8;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    /* Skills List */
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .skill-tag {
-      background: #1e293b;
-      padding: 0.5rem 1.5rem;
-      border-radius: 5px;
-      border: 1px solid #334155;
-    }
-    
-    /* Footer */
-    .footer {
-      padding: 4rem 1.5rem;
-      background: #020617;
+    /* Contact */
+    .contact-container {
       text-align: center;
-      border-top: 1px solid #1e293b;
+      background: #1e293b;
+      padding: 3rem;
+      border-radius: 10px;
     }
 
-    .contact-links {
-      margin-top: 1rem;
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .social-links {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
-    .contact-links a:hover {
+    .social-links img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      transition: transform 0.3s;
+      background: white;
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #050505;
+      border-top: 1px solid #333;
+      margin-top: 2rem;
+    }
+
+    footer h3 {
       color: #38bdf8;
     }
 
-    .copyright {
-      margin-top: 2rem;
-      font-size: 0.8rem;
+    footer p {
       color: #64748b;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
     }
 
-    /* Media Queries */
+    /* Responsive */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 7rem;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .nav-links {
+        display: none; /* Can add a hamburger menu logic here if needed */
+      }
     }
   </style>
 </head>
 <body>
 
-  <nav class="nav">
-    <div class="nav-brand">SAI PRABHAS</div>
-    <ul class="nav-menu">
-      <li><a href="#home">Home</a></li>
+  <nav class="navbar">
+    <div class="logo">Portfolio</div>
+    <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="https://drive.google.com/drive/folders/1IVSiORQOx0jzCAaQo3PacrKopd_5Bmx3?usp=sharing" target="_blank">Certificates</a></li>
     </ul>
   </nav>
 
-  <section id="home" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
+  <section class="hero">
+    <div class="hero-text">
+      <h3>Hello, I'm</h3>
       <h1>Singamrao Sai Prabhas</h1>
-      <p class="tagline">ECE Student & Aspiring Software Development Engineer</p>
-      <a href="#projects" class="btn">View My Work</a>
+      <h2>I am a Student / Developer</h2>
+      <p>Electronics and Communication Engineering student with strong knowledge in Python, SQL, Data Structures, Embedded Systems and Web Development. Passionate about software development, problem-solving and building impactful applications.</p>
+      <div class="btn-group">
+        <a href="https://drive.google.com/file/d/1c00TITsO0L_CIUg9OMc18ISMsDEwJL-6/view?usp=sharing" target="_blank" class="btn btn-primary">Download Resume</a>
+        <a href="#projects" class="btn btn-secondary">View Projects</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="beauty scene.jpg" alt="Sai prabhas">
     </div>
   </section>
 
   <section id="about" class="section">
-    <h2>Professional Summary</h2>
-    <div class="bio-grid">
-      <div class="bio-card">
-        <h3>The Background</h3>
-        <p>A final year B.Tech student in Electronics and Communication Engineering at Sreyas Institute. I bridge the gap between hardware and high-level software.</p>
+    <h2 class="section-title">About Me</h2>
+    <p class="about-content">
+      I am an Electronics and Communication Engineering student passionate about Software Development, Embedded Systems, Python Programming, Web Technologies, and Problem Solving. I enjoy developing projects that solve real-world problems and continuously improving my technical skills through coding practice and hands-on learning.
+    </p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h1>90+</h1>
+        <p>Problems Solved</p>
       </div>
-      <div class="bio-card">
-        <h3>The Vision</h3>
-        <p>Currently transitioning into SDE roles with a focus on problem-solving, clean code, and building scalable solutions using Python and Web Technologies.</p>
+      <div class="stat-card">
+        <h1>3+</h1>
+        <p>Projects</p>
       </div>
-    </div>
-  </section>
-
-  <section id="projects" class="section">
-    <h2>Featured Projects</h2>
-    <div class="projects-grid">
-      <article class="project-card">
-        <div class="project-info">
-          <span class="project-tags">IoT • ARDUINO • SENSORS</span>
-          <h3>Room Temperature Controller</h3>
-          <p>Designed an automated system using microcontrollers to regulate cooling/heating based on real-time data, improving energy efficiency.</p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-info">
-          <span class="project-tags">WEB DEV </span>
-          <h3>YouTube Clone</h3>
-          <p>Developed a responsive frontend interface with video listing features. Focused on reusable UI components and cross-device compatibility.</p>
-        </div>
-      </article>
-      <article class="project-card">
-        <div class="project-info">
-          <span class="project-tags">cadence </span>
-          <h3>MGDI Based XNOR Logic Full Adder</h3>
-          <p>Designed and simulated a full adder circuit using MGDI technology, ensuring optimal performance and reliability.</p>
-        </div>
-      </article>
+      <div class="stat-card">
+        <h1>5+</h1>
+        <p>Technologies</p>
+      </div>
     </div>
   </section>
 
   <section id="skills" class="section">
-    <h2>Technical Stack</h2>
+    <h2 class="section-title">Skills</h2>
     <div class="skills-container">
-      <div class="skill-tag">Python</div>
-      <div class="skill-tag">Data Structures & Algorithms</div>
-      <div class="skill-tag">C Programming</div>
-      <div class="skill-tag">HTML</div>
-      <div class="skill-tag">CSS</div>
-      <div class="skill-tag">JavaScript</div>
-      <div class="skill-tag">React</div>
-      <div class="skill-tag">SQL & MySQL</div>
-      <div class="skill-tag">IoT (Arduino/ESP32)</div>
-      <div class="skill-tag">Raspberry Pi</div>
+      <div class="skill">Python</div>
+      <div class="skill">MySQL</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">Web Development</div>
+      <div class="skill">Embedded Systems</div>
+      <div class="skill">VLSI</div>
+      <div class="skill">Data Structures</div>
+      <div class="skill">Problem Solving</div>
+      <div class="skill">React.js</div>
     </div>
   </section>
 
-  <footer id="contact" class="footer">
-    <p>Let's build something together.</p>
-    <div class="contact-links">
-      <a href="mailto:saiprabhassingamrao@gmail.com">Email</a>
-      <a href="https://github.com/singamraoSaiprabhas">GitHub</a>
-      <a href="https://www.linkedin.com/in/sai-prabhas-singam-rao-259418398/">LinkedIn</a>
+  <section id="projects" class="section">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h2>gym check list</h2>
+        <p>A simple web application to manage gym workout routines and track progress.</p>
+        <a href="https://github.com/singamraoSaiprabhas/gym-checklist" target="_blank" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card">
+        <h2>ATM Simulator</h2>
+        <p>A web-based simulation of an ATM machine with core functionalities like balance inquiry, cash withdrawal, and deposit.</p>
+        <a href="https://github.com/singamraoSaiprabhas/ATM-simulator" target="_blank" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card">
+        <h2>chess game</h2>
+        <p>A simple web application for playing chess with a user-friendly interface.</p>
+        <a href="https://github.com/singamraoSaiprabhas/chess-game" target="_blank" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card">
+        <h2>More Projects in GitHub</h2>
+        <p>Explore my entire repository of code, experiments, and ongoing projects on my GitHub profile.</p>
+        <a href="https://github.com/singamraoSaiprabhas?tab=repositories" target="_blank" class="project-link">View More Projects →</a>
+      </div>
     </div>
-    <p class="copyright">&copy; 2026 Singamrao Sai Prabhas</p>
+  </section>
+
+  <section id="education" class="section">
+    <div class="edu-achieve-grid">
+      <div class="box">
+        <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Education</h2>
+        <h3>B.Tech - Electronics & Communication Engineering</h3>
+        <p>Sreyas Institute of Engineering and Technology</p>
+        <p>2023 - 2027</p>
+      </div>
+      <div class="box">
+        <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Achievements</h2>
+        <ul class="achievements-list">
+          <li>⭐ Active HackerRank Practitioner</li>
+          <li>⭐ Active LeetCode Problem Solver</li>
+          <li>⭐ Developed Multiple Software Projects</li>
+          <li>⭐ Strong Foundation in Python and SQL</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p><strong>Name:</strong> Singamrao Sai Prabhas</p>
+        <p><strong>Email:</strong> singamraosaiprabhas@gmail.com</p>
+        <p><strong>Phone:</strong> +91 8919703259</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.hackerrank.com/profile/singamraosaipra1" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank">
+        </a>
+        <a href="https://www.linkedin.com/in/sai-prabhas-singam-rao-259418398/" target="_blank">
+          <img src="https://openvisualfx.com/wp-content/uploads/2019/10/linkedin-icon-logo-png-transparent.png" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/singamraoSaiprabhas" target="_blank">
+          <img src="https://res.cloudinary.com/dhqvknalh/image/upload/v1778138399/github-6980894_640_f15zch.png" alt="GitHub">
+        </a>
+        <a href="https://leetcode.com/u/singamrao_Sai_prabhas/" target="_blank">
+          <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png" alt="LeetCode">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Singamrao Sai Prabhas</h3>
+    <p>Python Developer | Web Developer | ECE Student</p>
+    <p>© 2026 All Rights Reserved</p>
   </footer>
 
-  <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
 </body>
 </html>
