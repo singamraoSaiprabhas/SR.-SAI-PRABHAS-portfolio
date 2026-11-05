@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Singamrao Sai Prabhas | Portfolio</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.9);
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid #333;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 6rem 5% 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 2rem;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h3 {
+      font-size: 1.5rem;
+      color: #cbd5e1;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      margin-bottom: 1rem;
+      color: #38bdf8;
+      white-space: nowrap;
+    }
+
+    .hero-text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #e2e8f0;
+    }
+
+    .hero-text p {
+      color: #94a3b8;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      font-size: 1.1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0a0a0a;
+    }
+
+    .btn-primary:hover {
+      background: #0284c7;
+    }
+
+    .btn-secondary {
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    .hero-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-img img {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #38bdf8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    }
+
+    /* Sections Container */
+    .section {
+      padding: 5rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: #38bdf8;
+    }
+
+    /* About & Stats */
+    .about-content {
+      text-align: center;
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 200px;
+    }
+
+    .stat-card h1 {
+      color: #38bdf8;
+      font-size: 2.5rem;
+    }
+
+    /* Skills */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .skill {
+      background: #1e293b;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 500;
+      border: 1px solid #334155;
+      transition: transform 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-3px);
+      border-color: #38bdf8;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 10px;
+      border-top: 4px solid #38bdf8;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card h2 {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .project-card p {
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .project-link {
+      color: #38bdf8;
+      font-weight: bold;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Experience, Education & Achievements */
+    .edu-achieve-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .box {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .box h3 {
+      color: #38bdf8;
+      margin-bottom: 0.5rem;
+    }
+    
+    .box h4 {
+      color: #e2e8f0;
+      margin-bottom: 0.5rem;
+    }
+
+    .box p {
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+
+    .achievements-list {
+      list-style: none;
+    }
+
+    .achievements-list li {
+      margin-bottom: 0.8rem;
+      color: #cbd5e1;
+    }
+    
+    /* Certificate Links */
+    .cert-link {
+      color: #38bdf8;
+      font-weight: bold;
+      font-size: 0.9em;
+      margin-left: 0.5rem;
+    }
+
+    .cert-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact */
+    .contact-container {
+      text-align: center;
+      background: #1e293b;
+      padding: 3rem;
+      border-radius: 10px;
+    }
+
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .social-links img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      transition: transform 0.3s;
+      background: white;
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #050505;
+      border-top: 1px solid #333;
+      margin-top: 2rem;
+    }
+
+    footer h3 {
+      color: #38bdf8;
+    }
+
+    footer p {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 7rem;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience & Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://drive.google.com/drive/folders/1IVSiORQOx0jzCAaQo3PacrKopd_5Bmx3?usp=sharing" target="_blank">Certificates</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h3>Hello, I'm</h3>
+      <h1>Singamrao Sai Prabhas</h1>
+      <h2>Software Engineer</h2>
+      <p>Software-focused engineering graduate skilled in Python, Java, SQL, and RESTful API engineering. Passionate about building reliable, high-performing software platforms supporting data-driven solutions.</p>
+      <div class="btn-group">
+        <a href="https://drive.google.com/file/d/1c00TITsO0L_CIUg9OMc18ISMsDEwJL-6/view?usp=sharing" target="_blank" class="btn btn-primary">Download Resume</a>
+        <a href="#projects" class="btn btn-secondary">View Projects</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="prabhas_profile_pic.jpg" alt="Sai Prabhas">
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2 class="section-title">About Me</h2>
+    <p class="about-content">
+      I am an Electronics and Communication Engineering graduate with hands-on expertise in Backend Architecture, MVC Patterns, Object-Oriented Design, and Microservices Concepts. I specialize in building full-stack applications and automated agents using Python, Flask, TypeScript, and MongoDB Atlas, constantly optimizing for robust logic and seamless deployment.
+    </p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h1>170+</h1>
+        <p>Problems Solved</p>
+      </div>
+      <div class="stat-card">
+        <h1>4+</h1>
+        <p>Projects</p>
+      </div>
+      <div class="stat-card">
+        <h1>10+</h1>
+        <p>Technologies</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-container">
+      <div class="skill">Python</div>
+      <div class="skill">Java</div>
+      <div class="skill">C/C++</div>
+      <div class="skill">TypeScript</div>
+      <div class="skill">SQL</div>
+      <div class="skill">Flask</div>
+      <div class="skill">RESTful APIs</div>
+      <div class="skill">MongoDB Atlas (NoSQL)</div>
+      <div class="skill">PostgreSQL</div>
+      <div class="skill">Git/GitHub</div>
+      <div class="skill">Linux/Bash</div>
+      <div class="skill">Render</div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h2>Gym & Nutrition Tracker</h2>
+        <p>A full-stack MVC application built with Python, Flask, MongoDB Atlas, and Render. Features secure RESTful endpoints and optimized NoSQL schemas for complex metric computations.</p>
+        <a href="https://github.com/singamraosaiprabhas/gym-checklist" target="_blank" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card">
+        <h2>AI-Powered Job Search Agent</h2>
+        <p>An autonomous web automation engine engineered in TypeScript using the Gemini Flash API, Browserbase, and structured REST APIs with JSON Validation.</p>
+        <a href="https://github.com/singamraosaiprabhas" target="_blank" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card">
+        <h2>EARN-AI: Edge-AI Accelerator</h2>
+        <p>An analytical simulation framework designed using Python, PyTorch, ONNX, NumPy, and SciPy to benchmark model bottlenecks across MobileViT and YOLOv8-Nano.</p>
+        <a href="https://github.com/singamraosaiprabhas" target="_blank" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card">
+        <h2>More Projects in GitHub</h2>
+        <p>Explore my entire repository of code, architecture experiments, and ongoing software projects on my GitHub profile.</p>
+        <a href="https://github.com/singamraosaiprabhas?tab=repositories" target="_blank" class="project-link">View More Projects →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="edu-achieve-grid">
+      <div class="box">
+        <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Experience</h2>
+        <h3>Hardware/Firmware Engineering Intern</h3>
+        <h4>Central Institute of Tool Design (CITD)</h4>
+        <p>March 2026 | Hyderabad, India</p>
+        <ul class="achievements-list">
+          <li>Validated logic architectures and executed test benches to verify structural correctness.</li>
+          <li>Identified logic bottlenecks to optimize gate designs from 21 gates to 17 gates.</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Education</h2>
+        <h3>B.Tech - Electronics & Communication Engineering</h3>
+        <p>Sreyas Institute of Engineering and Technology</p>
+        <p>2023 - Present | CGPA: 7.8</p>
+        <br>
+        <h3>Intermediate</h3>
+        <p>Sri Chaitanya Junior College</p>
+        <p>2021 - 2023 | 83.4%</p>
+      </div>
+
+      <div class="box">
+        <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Certifications</h2>
+        <ul class="achievements-list">
+          <li>⭐ HackerRank: 5-Star Python Badge <a href="https://www.hackerrank.com/certificates/e900dcc203b6" target="_blank" class="cert-link">[View]</a></li>
+          <li>⭐ NPTEL: Python for Data Science <a href="https://drive.google.com/file/d/1QC6GtayvjLwroGO8EReVeuUScEYs3CG3/view?usp=sharing" target="_blank" class="cert-link">[View Certificate]</a></li>
+          <li>⭐ Udemy: Python Complete Course for Beginners <a href="https://drive.google.com/file/d/1DwgjidIX-lbWj3i1I5l-0l30m1l062MB/view?usp=drive_link" target="_blank" class="cert-link">[View Certificate]</a></li>
+          <li>⭐ Udemy: Complete MS Office and Web Development Course <a href="https://drive.google.com/file/d/1EY41nuQsgBGu4uWp1dzQFCAteEJdzhXc/view?usp=drive_link" target="_blank" class="cert-link">[View Certificate]</a></li>
+          <li>⭐ CITD: Internship Programme on Verilog HDL <a href="https://drive.google.com/file/d/1VQZYP-PodStzebdfSJUcNH9pn7uIcZ5o/view?usp=drive_link" target="_blank" class="cert-link">[View Certificate]</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p><strong>Name:</strong> Singamrao Sai Prabhas</p>
+        <p><strong>Email:</strong> saiprabhassingamrao@gmail.com</p>
+        <p><strong>Phone:</strong> +91-8919703259</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.hackerrank.com/profile/singamraosaipra1" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank">
+        </a>
+        <a href="https://www.linkedin.com/in/sai-prabhas-singam-rao-259418398/" target="_blank">
+          <img src="https://openvisualfx.com/wp-content/uploads/2019/10/linkedin-icon-logo-png-transparent.png" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/singamraosaiprabhas" target="_blank">
+          <img src="https://res.cloudinary.com/dhqvknalh/image/upload/v1778138399/github-6980894_640_f15zch.png" alt="GitHub">
+        </a>
+        <a href="https://leetcode.com/u/singamrao_Sai_prabhas/" target="_blank">
+          <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png" alt="LeetCode">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Singamrao Sai Prabhas</h3>
+    <p>Software Engineer | Python Developer | ECE Graduate</p>
+    <p>© 2026 All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
